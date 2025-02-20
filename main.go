@@ -26,18 +26,19 @@ func main() {
 
 	for range ticker.C {
 		fmt.Print("\033[H\033[2J") // clear screen
+		printGameState(state)
 
 		startingState = life.Tick(startingState)
 
-		for i := range startingState {
-			for _, v := range startingState[i] {
-				if v == true {
-					fmt.Print("*")
-				} else {
-					fmt.Print(".")
-				}
+func printGameState(state [][]bool) {
+	for i := range state {
+		for _, v := range state[i] {
+			if v == true {
+				fmt.Print("*")
+			} else {
+				fmt.Print(".")
 			}
-			fmt.Println()
 		}
+		fmt.Println()
 	}
 }
