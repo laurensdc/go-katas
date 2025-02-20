@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"reflect"
 	"time"
 
 	"github.com/laurensdc/go-game-of-life/life"
+	"github.com/laurensdc/go-game-of-life/print"
 )
 
 func main() {
@@ -36,30 +36,11 @@ func main() {
 			break // game over because game is not evolving anymome
 		}
 
-		printClearScreen()
+		print.PrintClearScreen()
 
 		state = newState
 
-		printGameState(state)
+		print.PrintGameState(state)
 
 	}
-}
-
-func printClearScreen() {
-	fmt.Print("\033[H\033[2J") // clear screen
-
-}
-
-func printGameState(state [][]bool) {
-	for i := range state {
-		for _, v := range state[i] {
-			if v == true {
-				fmt.Print("*")
-			} else {
-				fmt.Print(".")
-			}
-		}
-		fmt.Println()
-	}
-
 }
