@@ -47,7 +47,6 @@ func Tick(state [][]bool) [][]bool {
 
 	for i := range state {
 		for j := range state[i] {
-			// fmt.Printf("%v %v %v %v\n", state[i][j], i, j, len(state[i]))
 			if countNeighbors(state, i, j) < 2 {
 				response[i][j] = false
 			}
