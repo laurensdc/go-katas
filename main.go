@@ -7,19 +7,21 @@ import (
 )
 
 func main() {
-	fmt.Println("HI")
-	ticker := time.NewTicker(1 * time.Second)
+	ticker := time.NewTicker(100 * time.Millisecond)
 	defer ticker.Stop()
 
 	startingState := [][]bool{
-		{false, true, false, true, false, true, false},
-		{true, true, false, false, false, false, false},
-		{false, false, true, false, false, true, false},
-		{false, true, true, false, false, true, false},
-		{false, true, true, false, false, true, false},
-		{false, true, true, false, false, true, false},
-		{false, true, true, false, false, true, false},
-		{false, true, true, false, false, true, false},
+		{false, true, false, true, false, true, false, true, false, true, true, false, false, false, false, false, false, true},
+		{false, true, false, true, false, true, false, true, false, true, true, false, false, false, false, false, false, true},
+		{false, false, true, false, false, true, false, true, false, false, true, true, false, false, true, false, true, false},
+		{false, true, false, true, false, true, false, true, false, true, true, false, false, false, false, false, false, true},
+		{false, false, true, false, false, true, false, true, false, false, true, true, false, false, true, false, true, false},
+		{false, true, true, false, false, true, false, false, false, false, true, true, false, false, true, false, false, false},
+		{false, true, false, true, false, true, false, true, false, true, true, false, false, false, false, false, false, true},
+		{false, true, true, false, false, true, false, false, false, false, true, true, false, false, true, false, false, false},
+		{false, true, false, true, false, true, false, true, false, true, true, false, false, false, false, false, false, true},
+		{false, false, true, false, false, true, false, true, false, false, true, true, false, false, true, false, true, false},
+		{false, true, true, false, false, true, false, true, true, false, true, true, false, false, true, false, true, false},
 	}
 
 	for range ticker.C {
