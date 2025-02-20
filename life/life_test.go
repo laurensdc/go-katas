@@ -19,7 +19,7 @@ func Test_live_cell_with_fewer_than_two_live_neighbours_dies(t *testing.T) {
 		{false, false, true, false},
 	}
 
-	result := tick(before)
+	result := Tick(before)
 
 	fmt.Printf("%v\n", result)
 
@@ -41,7 +41,7 @@ func Test_live_cell_with_more_than_three_live_neighbours_dies(t *testing.T) {
 		{true, false, false, true},
 	}
 
-	result := tick(before)
+	result := Tick(before)
 
 	if !reflect.DeepEqual(result, after) {
 		t.Errorf("Expected\n%v\nGot\n%v\n", after, result)
@@ -60,7 +60,7 @@ func Test_live_cell_with_two_or_three_live_neighbours_lives_on(t *testing.T) {
 		{true, false, true, true},
 	}
 
-	result := tick(before)
+	result := Tick(before)
 
 	if !reflect.DeepEqual(result, after) {
 		t.Errorf("Expected\n%v\nGot\n%v\n", after, result)
@@ -82,7 +82,7 @@ func Test_any_dead_cell_with_exactly_three_live_neighbours_becomes_a_live_cell(t
 		{false, false, false, false},
 	}
 
-	result := tick(before)
+	result := Tick(before)
 
 	if !reflect.DeepEqual(result, after) {
 		t.Errorf("Expected\n%v\nGot\n%v\n", after, result)
