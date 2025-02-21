@@ -19,11 +19,12 @@ func main() {
 			break // game over because game is not evolving anymome
 		}
 
-		print.PrintClearScreen()
+		printer := print.GetPrinter()
+		printer.ClearScreen()
 
 		state = newState
 
-		print.PrintGameState(state)
+		printer.PrintGameState(state)
 
 	}
 }
