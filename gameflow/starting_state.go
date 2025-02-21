@@ -1,4 +1,4 @@
-package main
+package gameflow
 
 // True is alive, false is dead
 var state = [][]bool{

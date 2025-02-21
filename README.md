@@ -2,7 +2,7 @@
 
 ## Running
 
-1. (Optional) Modify the `starting_state.go`
+1. (Optional) Modify the `gameflow/starting_state.go`
 2. Run the program
 
 ```shell
