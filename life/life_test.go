@@ -6,8 +6,6 @@ import (
 	"testing"
 )
 
-// 1. Any live cell with fewer than two live neighbours dies,
-// as if caused by underpopulation.
 func Test_live_cell_with_fewer_than_two_live_neighbours_dies(t *testing.T) {
 	before := [][]bool{
 		{false, false, true, false},
@@ -28,8 +26,6 @@ func Test_live_cell_with_fewer_than_two_live_neighbours_dies(t *testing.T) {
 	}
 }
 
-// 2. Any live cell with more than three live neighbours dies,
-// as if by overcrowding.
 func Test_live_cell_with_more_than_three_live_neighbours_dies(t *testing.T) {
 	before := [][]bool{
 		{true, true, true, false},
@@ -47,6 +43,7 @@ func Test_live_cell_with_more_than_three_live_neighbours_dies(t *testing.T) {
 		t.Errorf("Expected\n%v\nGot\n%v\n", after, result)
 	}
 }
+
 func Test_live_cell_with_two_or_three_live_neighbours_lives_on(t *testing.T) {
 	before := [][]bool{
 		{false, true, true, false},
@@ -66,8 +63,6 @@ func Test_live_cell_with_two_or_three_live_neighbours_lives_on(t *testing.T) {
 		t.Errorf("Expected\n%v\nGot\n%v\n", after, result)
 	}
 }
-
-// Any dead cell with exactly three live neighbours becomes a live cell.
 
 func Test_any_dead_cell_with_exactly_three_live_neighbours_becomes_a_live_cell(t *testing.T) {
 	before := [][]bool{
@@ -99,7 +94,6 @@ func Test_count_neighbors(t *testing.T) {
 
 	if val := countNeighbors(state, 0, 0); val != 1 {
 		t.Errorf("Expected 0, 0 to have 1 neighbors, got %v\n", val)
-
 	}
 
 	if val := countNeighbors(state, 1, 3); val != 3 {
