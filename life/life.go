@@ -28,7 +28,6 @@ func countNeighbors(state [][]bool, x, y int) int {
 		}
 
 		if state[x+d.x][y+d.y] == true {
-			//	fmt.Printf("Found %v - %v %v %v\n", state[x+d.x][y+d.y], x, y, d)
 			neighborCount++
 		}
 	}
