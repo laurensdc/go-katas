@@ -1,4 +1,7 @@
+// Core logic of how the game works
 package life
+
+import "slices"
 
 func countNeighbors(state [][]bool, x, y int) int {
 	type Direction struct {
@@ -41,7 +44,7 @@ func Tick(state [][]bool) [][]bool {
 	// while looping over them by mutating
 	response := make([][]bool, len(state))
 	for i := range state {
-		response[i] = append([]bool(nil), state[i]...)
+		response[i] = slices.Clone(state[i])
 	}
 
 	for i := range state {
