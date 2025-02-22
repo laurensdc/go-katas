@@ -8,7 +8,7 @@ import (
 	"github.com/laurensdc/go-game-of-life/print"
 )
 
-func StartGame(t *time.Ticker, p print.GamePrinter) {
+func StartGame(state [][]bool, t *time.Ticker, p print.GamePrinter) {
 	defer t.Stop()
 
 	for range t.C {
