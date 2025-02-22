@@ -9,6 +9,6 @@ import (
 
 func main() {
 	ticker := time.NewTicker(100 * time.Millisecond)
-	printer := print.GetPrinter()
+	printer := print.GetPrinterToConsole()
 	gameflow.StartGame(startingState, ticker, printer)
 }
