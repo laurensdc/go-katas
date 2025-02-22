@@ -8,16 +8,16 @@ type GamePrinter interface {
 }
 
 func GetPrinter() GamePrinter {
-	return GamePrinterToConsole{}
+	return &GamePrinterToConsole{}
 }
 
 type GamePrinterToConsole struct{}
 
-func (c GamePrinterToConsole) ClearScreen() {
+func (p *GamePrinterToConsole) ClearScreen() {
 	fmt.Print("\033[H\033[2J") // clear screen
 }
 
-func (c GamePrinterToConsole) PrintGameState(state [][]bool) {
+func (p *GamePrinterToConsole) PrintGameState(state [][]bool) {
 	for i := range state {
 		for _, v := range state[i] {
 			if v == true {
