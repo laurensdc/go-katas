@@ -1,6 +1,8 @@
 package main
 
-import "strconv"
+import (
+	"strconv"
+)
 
 func main() {
 
@@ -13,15 +15,9 @@ func Counterstring(n int) string {
 	if n == 1 {
 		return "*"
 	}
-	if n >= 1000 {
-		return Counterstring(n-5) + strconv.Itoa(n) + "*"
-	}
-	if n >= 100 {
-		return Counterstring(n-4) + strconv.Itoa(n) + "*"
-	}
-	if n >= 10 {
-		return Counterstring(n-3) + strconv.Itoa(n) + "*"
-	}
-	return Counterstring(n-2) + strconv.Itoa(n) + "*"
+
+	strlen := len(strconv.Itoa(n))
+
+	return Counterstring(n-strlen-1) + strconv.Itoa(n) + "*"
 
 }
