@@ -38,6 +38,14 @@ func Test_Counterstring(t *testing.T) {
 			n:        6,
 			expected: "2*4*6*",
 		},
+		{
+			n:        9,
+			expected: "*3*5*7*9*",
+		},
+		{
+			n:        10,
+			expected: "*3*5*7*10*",
+		},
 	}
 
 	for _, tt := range tests {
