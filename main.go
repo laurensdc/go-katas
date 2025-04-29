@@ -12,5 +12,10 @@ func Counterstring(n int) string {
 	if n == 2 {
 		return "2*"
 	}
+
+	if n == 3 {
+		return "*3*"
+	}
+
 	return ""
 }
