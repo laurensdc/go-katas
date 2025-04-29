@@ -8,16 +8,24 @@ func main() {
 
 }
 
-func Counterstring(n int) string {
+func Counterstring(n uint) string {
 	if n == 0 {
 		return ""
 	}
+
 	if n == 1 {
 		return "*"
 	}
 
-	strlen := len(strconv.Itoa(n))
+	// e.g. "9999"
+	nStr := strconv.FormatUint(uint64(n), 10)
 
-	return Counterstring(n-strlen-1) + strconv.Itoa(n) + "*"
+	// e.g. "4"
+	numberOfDigits := len(nStr)
+
+	// e.g. Counterstring(9999 - 4 - 1)
+	recursiveCounterstring := Counterstring(n - uint(numberOfDigits) - 1)
+
+	return recursiveCounterstring + nStr + "*"
 
 }
