@@ -13,6 +13,9 @@ func Counterstring(n int) string {
 	if n == 1 {
 		return "*"
 	}
+	if n >= 1000 {
+		return Counterstring(n-5) + strconv.Itoa(n) + "*"
+	}
 	if n >= 100 {
 		return Counterstring(n-4) + strconv.Itoa(n) + "*"
 	}
