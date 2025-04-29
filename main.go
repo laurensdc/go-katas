@@ -33,6 +33,10 @@ func Counterstring(n uint) string {
 		i = i - numberOfDigits - 1
 	}
 
+	return constructString(numbers)
+}
+
+func constructString(numbers []uint) string {
 	var buf bytes.Buffer
 
 	if numbers[len(numbers)-1] == 3 {
