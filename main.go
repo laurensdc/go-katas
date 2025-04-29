@@ -6,11 +6,17 @@ import (
 )
 
 func main() {
-	Counterstring(uint(201))
-
+	Counterstring(uint(8))
 }
 
 func Counterstring(n uint) string {
+	if n == 0 {
+		return ""
+	}
+	if n == 1 {
+		return "*"
+	}
+
 	var numbers []uint
 
 	i := n
@@ -29,7 +35,7 @@ func Counterstring(n uint) string {
 
 	var buf bytes.Buffer
 
-	if i == 1 {
+	if numbers[len(numbers)-1] == 3 {
 		buf.WriteString("*")
 	}
 
