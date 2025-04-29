@@ -21,11 +21,9 @@ func Counterstring(n uint) string {
 
 		numbers = append(numbers, i)
 
-		iStr := strconv.FormatUint(uint64(i), 10)
-		numberOfDigits := uint(len(iStr))
+		numberOfDigits := numberOfDigits(i)
 
 		// This calculates the next value for the "recursive" step
-		// Ensure we don't underflow if currentN is small
 		i = i - numberOfDigits - 1
 	}
 
@@ -43,4 +41,9 @@ func Counterstring(n uint) string {
 	}
 
 	return buf.String()
+}
+
+func numberOfDigits(n uint) uint {
+	nStr := strconv.FormatUint(uint64(n), 10)
+	return uint(len(nStr))
 }
