@@ -22,10 +22,21 @@ func Test_Counterstring(t *testing.T) {
 			n:        2,
 			expected: "2*",
 		},
-
 		{
 			n:        3,
 			expected: "*3*",
+		},
+		{
+			n:        4,
+			expected: "2*4*",
+		},
+		{
+			n:        5,
+			expected: "*3*5*",
+		},
+		{
+			n:        6,
+			expected: "2*4*6*",
 		},
 	}
 
