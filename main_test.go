@@ -113,7 +113,7 @@ func Test_Counterstring_Handles_Big_Number(t *testing.T) {
 }
 
 func Test_Counterstring_Handles_Really_Big_Numbers(t *testing.T) {
-	t.Skip()
+	// t.Skip()
 	n := uint(1_000_000_000)
 
 	// If it doesn't go OOM, we're good

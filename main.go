@@ -17,25 +17,29 @@ func Counterstring(n uint) string {
 		return "*"
 	}
 
-	var numbers []uint
+	numbers := generateNumberSlice(n)
+	return constructString(numbers)
+}
 
+// Generate all the numbers that will be in the counterstring
+func generateNumberSlice(n uint) []uint {
+	var numbers []uint
 	i := n
+
 	for {
 		if i <= 1 {
 			break
 		}
 
 		numbers = append(numbers, i)
-
 		numberOfDigits := numberOfDigits(i)
-
-		// This calculates the next value for the "recursive" step
 		i = i - numberOfDigits - 1
 	}
 
-	return constructString(numbers)
+	return numbers
 }
 
+// Reverse loop over numbers to generate the counterstring
 func constructString(numbers []uint) string {
 	var buf bytes.Buffer
 
@@ -43,7 +47,6 @@ func constructString(numbers []uint) string {
 		buf.WriteString("*")
 	}
 
-	// Append the numbers from numsToAppend in reverse order
 	for i := len(numbers) - 1; i >= 0; i-- {
 		num := numbers[i]
 		buf.WriteString(strconv.FormatUint(uint64(num), 10))
