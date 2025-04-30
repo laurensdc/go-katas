@@ -2,11 +2,14 @@ package main
 
 import (
 	"bytes"
+	"fmt"
+	"os"
 	"strconv"
 )
 
 func main() {
-	Counterstring(uint(8))
+	i := extractNumberFromArgs()
+	fmt.Println(Counterstring(uint(i)))
 }
 
 func Counterstring(n uint) string {
@@ -19,6 +22,23 @@ func Counterstring(n uint) string {
 
 	numbers := generateNumberSlice(n)
 	return constructString(numbers)
+}
+
+func extractNumberFromArgs() uint64 {
+	if len(os.Args) != 2 {
+		fmt.Println("Please provide a number as argument")
+		os.Exit(1)
+	}
+
+	input := os.Args[1]
+	i, err := strconv.ParseUint(input, 10, 64)
+
+	if err != nil {
+		fmt.Printf("Could not parse number %v", input)
+		os.Exit(1)
+	}
+
+	return i
 }
 
 // Generate all the numbers that will be in the counterstring
