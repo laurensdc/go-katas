@@ -1,15 +1,16 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
-	"github.com/laurensdc/go-katas/fizzbuzz"
 	"os"
 	"strconv"
+
+	"github.com/laurensdc/go-katas/counterstring"
+	"github.com/laurensdc/go-katas/fizzbuzz"
 )
 
 func main() {
-	runFizzBuzz()
+	runCounterstring()
 }
 
 func runFizzBuzz() {
@@ -22,19 +23,7 @@ func runFizzBuzz() {
 
 func runCounterstring() {
 	i := extractNumberFromArgs()
-	fmt.Println(Counterstring(uint(i)))
-}
-
-func Counterstring(n uint) string {
-	if n == 0 {
-		return ""
-	}
-	if n == 1 {
-		return "*"
-	}
-
-	numbers := generateNumberSlice(n)
-	return constructString(numbers)
+	fmt.Println(counterstring.Counterstring(uint(i)))
 }
 
 func extractNumberFromArgs() uint64 {
@@ -52,44 +41,4 @@ func extractNumberFromArgs() uint64 {
 	}
 
 	return i
-}
-
-// Generate all the numbers that will be in the counterstring
-func generateNumberSlice(n uint) []uint {
-	var numbers []uint
-	i := n
-
-	for {
-		if i <= 1 {
-			break
-		}
-
-		numbers = append(numbers, i)
-		numberOfDigits := numberOfDigits(i)
-		i = i - numberOfDigits - 1
-	}
-
-	return numbers
-}
-
-// Reverse loop over numbers to generate the counterstring
-func constructString(numbers []uint) string {
-	var buf bytes.Buffer
-
-	if numbers[len(numbers)-1] == 3 {
-		buf.WriteString("*")
-	}
-
-	for i := len(numbers) - 1; i >= 0; i-- {
-		num := numbers[i]
-		buf.WriteString(strconv.FormatUint(uint64(num), 10))
-		buf.WriteString("*")
-	}
-
-	return buf.String()
-}
-
-func numberOfDigits(n uint) uint {
-	nStr := strconv.FormatUint(uint64(n), 10)
-	return uint(len(nStr))
 }
