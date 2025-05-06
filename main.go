@@ -6,9 +6,12 @@ import (
 )
 
 func main() {
-	numbers := fizzbuzz.FizzBuzz()
+	runFizzBuzz()
+}
+
+func runFizzBuzz() {
+	numbers := fizzbuzz.GenerateNumbers(100)
 	for i := 0; i < len(numbers); i++ {
 		fmt.Println(numbers[i])
 	}
-
 }

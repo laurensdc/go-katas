@@ -4,8 +4,8 @@ import (
 	"strconv"
 )
 
-func FizzBuzz() []string {
-	result := make([]string, 100)
+func GenerateNumbers(n int) []string {
+	result := make([]string, n)
 
 	for i := 0; i < len(result); i++ {
 		currentNumber := i + 1
