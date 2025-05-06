@@ -4,14 +4,17 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/laurensdc/go-katas/counterstring"
 	"github.com/laurensdc/go-katas/fizzbuzz"
+	"github.com/laurensdc/go-katas/gameoflife/gameflow"
+	"github.com/laurensdc/go-katas/gameoflife/print"
 	"github.com/laurensdc/go-katas/leapyear"
 )
 
 func main() {
-	runLeapyear()
+	runGameOfLife()
 }
 
 func runFizzBuzz() {
@@ -19,7 +22,6 @@ func runFizzBuzz() {
 	for i := 0; i < len(numbers); i++ {
 		fmt.Println(numbers[i])
 	}
-
 }
 
 func runCounterstring() {
@@ -68,4 +70,10 @@ func getArgAsInput() int {
 	}
 
 	return argI
+}
+
+func runGameOfLife() {
+	ticker := time.NewTicker(100 * time.Millisecond)
+	printer := print.GetPrinterToConsole()
+	gameflow.StartGame(startingState, ticker, printer)
 }
